@@ -9,4 +9,4 @@ class Solution:
             for num in coins:
                 if i - num >= 0:
                     minCoins[i] = min(minCoins[i], 1 + minCoins[i-num])
-        return -1 if minCoins[amount] > amount else minCoins[amount]
+        return -1 if minCoins[amount] == amount + 1 else minCoins[amount]
