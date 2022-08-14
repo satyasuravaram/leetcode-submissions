@@ -5,9 +5,7 @@
 #         self.next = next
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
-        if not head: return None
-        if not head.next:
-            return head
+        if not head or not head.next: return head
         a_start = None
         b_start = None
         nhead = ListNode(-69)
