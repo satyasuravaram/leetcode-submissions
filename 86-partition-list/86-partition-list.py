@@ -5,12 +5,13 @@
 #         self.next = next
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
-        if not head or not head.next: return head
-        a_start = None
-        b_start = None
-        nhead = ListNode(-69)
-        nhead.next = head
-        cur = nhead
+        if not head or not head.next: 
+            return head
+        
+        a_start, b_start = None, None
+        dummy_head = ListNode(101)
+        dummy_head.next = head
+        cur = dummy_head
         while cur and cur.next:
             if cur.next.val >= x:
                 a_start = cur
@@ -34,4 +35,7 @@ class Solution:
                 b_cur = b_cur.next
         
         a_cur.next = b_start
-        return nhead if nhead.val != -69 else nhead.next
+        if dummy_head.val == 101:
+            dummy_head = dummy_head.next
+            
+        return dummy_head
